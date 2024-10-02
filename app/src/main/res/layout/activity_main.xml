@@ -56,7 +56,7 @@
                 android:textSize="14dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_cos"
+                android:id="@+id/btnCos"
                 android:text="COS"
                 android:backgroundTint="#9B9999">
             </com.google.android.material.button.MaterialButton>
@@ -68,8 +68,8 @@
                 android:textSize="14dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_sen"
-                android:text="Sen"
+                android:id="@+id/btnSin"
+                android:text="Sin"
                 android:backgroundTint="#9B9999">
             </com.google.android.material.button.MaterialButton>
             <com.google.android.material.button.MaterialButton
@@ -80,7 +80,7 @@
                 android:textSize="14dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_tan"
+                android:id="@+id/btnTan"
                 android:text="Tan"
                 android:backgroundTint="#9B9999">
             </com.google.android.material.button.MaterialButton>
@@ -92,7 +92,7 @@
                 android:textSize="20dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_div"
+                android:id="@+id/btnDiv"
                 android:backgroundTint="#FF9800"
                 android:text="/">
             </com.google.android.material.button.MaterialButton>
@@ -111,7 +111,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_7"
+                android:id="@+id/btn7"
                 android:text="7"
                 android:backgroundTint="#353434">
 
@@ -124,7 +124,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_8"
+                android:id="@+id/btn8"
                 android:text="8"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -136,7 +136,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_9"
+                android:id="@+id/btn9"
                 android:text="9"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -148,7 +148,7 @@
                 android:textSize="20dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_mult"
+                android:id="@+id/btnMul"
                 android:backgroundTint="#FF9800"
                 android:text="x">
             </com.google.android.material.button.MaterialButton>
@@ -167,7 +167,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_4"
+                android:id="@+id/btn4"
                 android:text="4"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -179,7 +179,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_5"
+                android:id="@+id/btn5"
                 android:text="5"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -191,7 +191,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_6"
+                android:id="@+id/btn6"
                 android:text="6"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -203,7 +203,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_subs"
+                android:id="@+id/btnSub"
                 android:backgroundTint="#FF9800"
                 android:text="-">
             </com.google.android.material.button.MaterialButton>
@@ -222,7 +222,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_1"
+                android:id="@+id/btn1"
                 android:text="1"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -234,7 +234,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_2"
+                android:id="@+id/btn2"
                 android:text="2"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -246,7 +246,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_3"
+                android:id="@+id/btn3"
                 android:text="3"
                 android:backgroundTint="#353434">
             </com.google.android.material.button.MaterialButton>
@@ -258,7 +258,7 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_add"
+                android:id="@+id/btnAdd"
                 android:backgroundTint="#FF9800"
                 android:text="+">
             </com.google.android.material.button.MaterialButton>
@@ -277,7 +277,7 @@
                 android:textSize="21dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_ac"
+                android:id="@+id/btnClear"
                 android:text="AC"
                 android:backgroundTint="#9B9999">
             </com.google.android.material.button.MaterialButton>
@@ -290,7 +290,7 @@
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
                 android:backgroundTint="#353434"
-                android:id="@+id/button_0"
+                android:id="@+id/btn0"
                 android:text="0">
             </com.google.android.material.button.MaterialButton>
             <com.google.android.material.button.MaterialButton
@@ -302,7 +302,7 @@
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
                 android:backgroundTint="#353434"
-                android:id="@+id/button_dot"
+                android:id="@+id/btnDot"
                 android:text=".">
             </com.google.android.material.button.MaterialButton>
             <com.google.android.material.button.MaterialButton
@@ -313,18 +313,11 @@
                 android:textSize="32dp"
                 android:textColor="@color/white"
                 android:layout_margin="12dp"
-                android:id="@+id/button_equal"
+                android:id="@+id/btnEqual"
                 android:backgroundTint="#FF9800"
                 android:text="=">
             </com.google.android.material.button.MaterialButton>
         </LinearLayout>
-
-
-
-
-
-
-
 
     </LinearLayout>
 
