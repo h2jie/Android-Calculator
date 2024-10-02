@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity{
 
     private void performOperation(char action) {
         if (!Double.isNaN(valueOne)) {
+
             valueTwo = Double.parseDouble(resultTv.getText().toString());
             resultTv.setText(null);
             switch (CURRENT_ACTION) {
@@ -167,10 +168,9 @@ public class MainActivity extends AppCompatActivity{
                 result = Math.tan(inputValue);
                 break;
         }
-        DecimalFormat df = new DecimalFormat("#.########");
-        String formattedResult = df.format(valueOne);
+
         resultTv.setText(String.valueOf(result));
-        solutionTv.append(formattedResult);
+        solutionTv.append(String.valueOf(result));
     }
     private void calculateResult() {
         if (CURRENT_ACTION != NONE) {
