@@ -11,6 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity{
     TextView resultTv, solutionTv;
     Button btnAdd, btnSub, btnMul, btnDiv, btnEqual, btnClear;
@@ -24,7 +26,6 @@ public class MainActivity extends AppCompatActivity{
     char CURRENT_ACTION;
     final char ADD = '+', SUBTRACT = '-', MULTIPLY = '*', DIVIDE = '/', NONE = '0';
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity{
         btnSin = findViewById(R.id.btnSin);
         btnCos = findViewById(R.id.btnCos);
         btnTan = findViewById(R.id.btnTan);
-        // radianSwitch = findViewById(R.id.switchRadians);
+        radianSwitch = findViewById(R.id.switchRadians);
 
         resultTv = findViewById(R.id.result);
 
@@ -64,7 +65,9 @@ public class MainActivity extends AppCompatActivity{
 
         for (Button btn : numberButtons) {
             btn.setOnClickListener(v -> {
-                resultTv.append(btn.getText().toString());
+                String buttonText = btn.getText().toString();
+                resultTv.append(buttonText);
+                solutionTv.append(buttonText);
             });
         }
 
@@ -72,22 +75,50 @@ public class MainActivity extends AppCompatActivity{
 
         btnClear.setOnClickListener(v -> clear());
 
-        btnAdd.setOnClickListener(v -> performOperation(ADD));
-        btnSub.setOnClickListener(v -> performOperation(SUBTRACT));
-        btnMul.setOnClickListener(v -> performOperation(MULTIPLY));
-        btnDiv.setOnClickListener(v -> performOperation(DIVIDE));
+
+        btnAdd.setOnClickListener(v -> {
+            solutionTv.append(" + ");
+            performOperation(ADD);
+        });
+        btnSub.setOnClickListener(v -> {
+            solutionTv.append(" - ");
+            performOperation(SUBTRACT);
+        });
+        btnMul.setOnClickListener(v -> {
+            solutionTv.append(" x ");
+            performOperation(MULTIPLY);
+        });
+        btnDiv.setOnClickListener(v -> {
+            solutionTv.append(" / ");
+            performOperation(DIVIDE);
+        });
 
 
-        btnEqual.setOnClickListener(v -> calculateResult());
+        btnEqual.setOnClickListener(v -> {
+            solutionTv.append(" = ");
+            calculateResult();
+        });
 
-        /*btnSin.setOnClickListener(v -> calculateTrigonometricFunction("sin"));
-        btnCos.setOnClickListener(v -> calculateTrigonometricFunction("cos"));
-        btnTan.setOnClickListener(v -> calculateTrigonometricFunction("tan"));
-*/
+        btnSin.setOnClickListener(v -> {
+            solutionTv.setText("sin(" + resultTv.getText().toString() + ") = ");
+            calculateTrigonometricFunction("sin");
+        });
+        btnCos.setOnClickListener(v -> {
+            solutionTv.setText("Cos(" + resultTv.getText().toString() + ") = ");
+            calculateTrigonometricFunction("cos");
+        });
+        btnTan.setOnClickListener(v -> {
+            solutionTv.setText("Tan(" + resultTv.getText().toString() + ") = ");
+            calculateTrigonometricFunction("tan");
+        });
+
+
+
     }
 
     private void clear() {
         resultTv.setText("");
+        solutionTv.setText("");
         valueOne = Double.NaN;
         valueTwo = Double.NaN;
         CURRENT_ACTION = NONE;
@@ -97,7 +128,6 @@ public class MainActivity extends AppCompatActivity{
         if (!Double.isNaN(valueOne)) {
             valueTwo = Double.parseDouble(resultTv.getText().toString());
             resultTv.setText(null);
-
             switch (CURRENT_ACTION) {
                 case ADD:
                     valueOne = valueOne + valueTwo;
@@ -118,6 +148,30 @@ public class MainActivity extends AppCompatActivity{
         CURRENT_ACTION = action;
         resultTv.setText(null);
     }
+    private void calculateTrigonometricFunction(String function) {
+        double inputValue = Double.parseDouble(resultTv.getText().toString());
+
+        if (!radianSwitch.isChecked()) {
+            inputValue = Math.toRadians(inputValue);
+        }
+
+        double result = 0;
+        switch (function) {
+            case "sin":
+                result = Math.sin(inputValue);
+                break;
+            case "cos":
+                result = Math.cos(inputValue);
+                break;
+            case "tan":
+                result = Math.tan(inputValue);
+                break;
+        }
+        DecimalFormat df = new DecimalFormat("#.########");
+        String formattedResult = df.format(valueOne);
+        resultTv.setText(String.valueOf(result));
+        solutionTv.append(formattedResult);
+    }
     private void calculateResult() {
         if (CURRENT_ACTION != NONE) {
             valueTwo = Double.parseDouble(resultTv.getText().toString());
@@ -135,7 +189,16 @@ public class MainActivity extends AppCompatActivity{
                     valueOne = valueOne / valueTwo;
                     break;
             }
-            resultTv.setText(String.valueOf(valueOne));
+
+            if (Double.isNaN(valueOne) || Double.isInfinite(valueOne)) {
+                resultTv.setText("Error");
+            } else {
+                DecimalFormat df = new DecimalFormat("#.########");
+                String formattedResult = df.format(valueOne);
+                resultTv.setText(formattedResult);
+                solutionTv.append(formattedResult);
+            }
+
             CURRENT_ACTION = NONE;
         }
     }
